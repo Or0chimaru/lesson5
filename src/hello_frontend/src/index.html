@@ -1,24 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>hello</title>
-    <base href="/" />
-    <link rel="icon" href="favicon.ico" />
-    <link type="text/css" rel="stylesheet" href="main.css" />
-  </head>
-  <body>
-    <main>
-      <img src="logo2.svg" alt="DFINITY logo" />
-      <br />
-      <br />
-      <form action="#">
-        <label for="name">Enter your name: &nbsp;</label>
-        <input id="name" alt="Name" type="text" />
-        <button type="submit">Click Me!</button>
-      </form>
-      <section id="greeting"></section>
-    </main>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width" />
+  <title>MicroBlog</title>
+  <base href="/" />
+  <link rel="icon" href="favicon.ico" />
+  <link type="text/css" rel="stylesheet" href="main.css" />
+</head>
+
+<body>
+  <header>
+    <h1>MicroBlog</h1>
+  </header>
+  <main>
+    <label for="message">What do you want to post?</label>
+    <textarea id="message"></textarea>
+    <label for="otp">One Time Password</label>
+    <input type="password" id="otp">
+    <button id="post">Post</button>
+    &nbsp;<span id="error"></span>
+    <br>
+    <hr>
+    <button id="load_posts">Load My Posts</button>
+    &nbsp;<span id="load_nothing"></span>
+    <div id="posts"></div>
+
+    <br>
+    <hr><br>
+
+    <button id="load_followed">Load Followed</button>
+    &nbsp;<span id="no_new_follows"></span>
+    <div id="followed_list"></div>
+
+    <br>
+    <hr><br>
+
+    <button id="load_timeline">Load Timeline</button>
+    &nbsp;<span id="no_new_timeline"></span>
+    <div id="timeline"></div>
+
+  </main>
+</body>
+
 </html>

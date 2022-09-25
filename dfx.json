@@ -4,6 +4,14 @@
       "main": "src/hello_backend/main.mo",
       "type": "motoko"
     },
+    "test1_backend": {
+      "main": "src/test1_backend/main.mo",
+      "type": "motoko"
+    },
+    "test2_backend": {
+      "main": "src/test2_backend/main.mo",
+      "type": "motoko"
+    },
     "hello_frontend": {
       "dependencies": [
         "hello_backend"

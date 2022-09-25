@@ -52,12 +52,6 @@ actor {
   public shared query func get_name() : async ?Text {
     author;
   };
-
-  public shared func id_name(id: Text) : async ?Text {
-    let canister : Microblog = actor(id);
-    let canister_name = await canister.get_name();
-    canister_name;
-  };
   
   public shared func post(otp: Passwd, text: Text) : async () {
     assert(otp == passwd);
@@ -109,6 +103,4 @@ actor {
     assert(otp == passwd);
     messages := empty_msg;
   };
-  
-  
 };

@@ -12,6 +12,7 @@ actor {
   };
   public type Passwd = Text;
 
+  // 测试 Microblog type 不一致是否对 timeline 函数有影响
   public type Microblog = actor {
     follow: shared(Principal) -> async (); // add following
     follows: shared query () -> async [Text]; // return following people list
@@ -20,6 +21,8 @@ actor {
     timeline: shared () -> async [Message]; // return all of following people posted microblog
     set_name: shared (Text) -> async (); // set author name
     get_name: shared query () -> async ?Text;
+    unfollow_all: shared (Text) -> async ();
+    clean_posts: shared (Text) -> async ();
   };
 
   stable var followed : List.List<Principal> = List.nil();
@@ -52,13 +55,7 @@ actor {
   public shared query func get_name() : async ?Text {
     author;
   };
-
-  public shared func id_name(id: Text) : async ?Text {
-    let canister : Microblog = actor(id);
-    let canister_name = await canister.get_name();
-    canister_name;
-  };
-  
+   
   public shared func post(otp: Passwd, text: Text) : async () {
     assert(otp == passwd);
     messages := List.push({
@@ -109,6 +106,4 @@ actor {
     assert(otp == passwd);
     messages := empty_msg;
   };
-  
-  
 };
